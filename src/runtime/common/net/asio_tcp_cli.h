@@ -24,6 +24,7 @@ class AsioTcpClient : public std::enable_shared_from_this<AsioTcpClient> {
   using Strand = boost::asio::strand<IOCtx::executor_type>;
   using Timer = boost::asio::steady_timer;
   using Streambuf = boost::asio::streambuf;
+  using Streambuf2 = boost::asio::streambuf;
 
   template <class T>
   using Awaitable = boost::asio::awaitable<T>;
