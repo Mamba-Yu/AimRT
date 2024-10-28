@@ -89,17 +89,7 @@ class AsioTcpClient : public std::enable_shared_from_this<AsioTcpClient> {
     session_options_ptr_ = std::make_shared<SessionOptions>(options_);
   }
 
-  void MyClass::Deinitialize() {
-    AIMRT_CHECK_ERROR_THROW(
-        std::atomic_exchange(&state_, State::kDeinit) == State::kInit,
-        "Deinitialize can only be called when the state is 'Init'."
-    );
 
-    // 释放资源
-    session_options_ptr_.reset();  // 释放 shared_ptr 指向的对象
-
-    state_.store(State::kPreInit);
-}
 
   void Start() {
     AIMRT_CHECK_ERROR_THROW(
